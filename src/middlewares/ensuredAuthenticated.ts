@@ -16,7 +16,7 @@ import { decode, verify } from 'jsonwebtoken';
 
 
             try {
-                verify(token, process.env.JWT_KEY);
+                verify(token, process.env.JWT_STRING);
                 
                 const { user } = decode(token);
                 request.userId = user.id

@@ -4,7 +4,7 @@ import { IHeroRequest } from "../../dtos/Hero";
 
 export class CreateHeroService {
 
-    async execute ({ name, description }: IHeroRequest): Promise<IHeroRequest | Error> {
+    async execute ({ name, age, power, team }: IHeroRequest): Promise<IHeroRequest | Error> {
 
 
         const _repository = heroRepository();
