@@ -1,11 +1,11 @@
 import { userRepository } from "../../repositories";
-import { IUserRequestDTO, IUserRequestUpdateDTO } from "../../dtos/User";
+import { IUser, IUserRequestUpdateDTO } from "../../dtos/User";
 
 
 export class UpdateUserService {
 
-    async execute (id, {name, email }
-        : IUserRequestUpdateDTO): Promise<IUserRequestDTO | Error> {
+    async execute (id, {name, email, companyName, phone }
+        : IUserRequestUpdateDTO): Promise<IUser | Error> {
 
 
         const _repository = userRepository();
@@ -18,6 +18,9 @@ export class UpdateUserService {
 
         user.name = name;
         user.email = email;
+        user.companyName = companyName;
+        user.phone = phone;
+
 
         await user.save(); 
 

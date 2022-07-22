@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import { decode, verify } from 'jsonwebtoken';
+import { IExpressRequest } from '../dtos/User';
 
 //* ensuredAuthenticated *//
 
     export const ensuredAuthenticated = () => {
     
-        return async (request: Request, response: Response, next: NextFunction) => {
+        return async (request: IExpressRequest, response: Response, next: NextFunction) => {
 
             const authHeaders = request.headers.authorization;
 
@@ -16,10 +17,9 @@ import { decode, verify } from 'jsonwebtoken';
 
 
             try {
-                verify(token, process.env.JWT_STRING);
+                const data = verify(token, process.env.JWT_STRING) as { id:string; email: string; name: string;};
                 
-                const { user } = decode(token);
-                request.userId = user.id
+                request.userId = data.id;
                 return next();
             } catch (err) {
                 return response.status(401).json({ error: err})

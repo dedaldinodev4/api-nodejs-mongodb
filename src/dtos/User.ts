@@ -1,5 +1,10 @@
 import { Document } from 'mongoose';
+import { Request } from 'express'
 
+
+export interface IExpressRequest extends Request {
+    userId: string;
+}
 
 export interface IUser extends Document{
     name: string;
@@ -12,11 +17,11 @@ export interface IUser extends Document{
 }
 
 export interface IUserRequestDTO extends Document{
-    name:string;
-    email: string;
-    password: string;
-    companyName?: string;
-    phone?: string;
+    name:string | any;
+    email: string | any;
+    password: string | any;
+    companyName: string | any;
+    phone: string | any;
 }
 
 
@@ -30,6 +35,8 @@ type User = {
     id: string;
     name:string;
     email: string;
+    companyName: string;
+    phone: string;
 } 
 
 export interface IUserData {

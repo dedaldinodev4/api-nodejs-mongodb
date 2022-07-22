@@ -6,11 +6,13 @@ export class RegisterController {
 
     async handle(request: Request, response: Response) {
 
-        const { email, name, password } = request.body;
+        const { email, name, password, companyName, phone } = request.body;
 
         const service = new RegisterService();
 
-        const result = await service.execute({email, name, password});
+        const result = await service.execute({
+            name, email, password, companyName, phone
+        });
 
         if ( result instanceof Error) {
             response.status(400).json(result.message);

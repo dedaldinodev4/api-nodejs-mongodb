@@ -1,11 +1,11 @@
 import { userRepository } from "../../repositories";
-import { IUserRequestDTO } from "../../dtos/User";
+import { IUserRequestDTO, IUser } from "../../dtos/User";
 import { hashSync } from 'bcrypt';
 
 
 export class RegisterService {
 
-    async execute ({ name, email, password }: IUserRequestDTO): Promise<IUserRequestDTO | Error> {
+    async execute ({ name, email, password, companyName, phone }): Promise<IUser | Error> {
 
 
         const _repository = userRepository();
@@ -21,6 +21,8 @@ export class RegisterService {
         const user = _repository.create({
             name,
             email,
+            companyName, 
+            phone,
             password: hash
         });
 

@@ -1,10 +1,10 @@
 import { userRepository } from "../../repositories";
-import { IUserRequestDTO } from "../../dtos/User";
+import { IUser } from "../../dtos/User";
 
 
 export class GetOneUserService {
 
-    async execute (id: string): Promise<IUserRequestDTO | Error> {
+    async execute (id: string): Promise<IUser | Error> {
 
 
         const _repository = userRepository();

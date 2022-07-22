@@ -18,7 +18,7 @@ export class LoginService {
        if (compareSync(password, user.password)) {
 
             const token = jwt.sign({
-               user
+               id: user._id, email: user.email, name: user.name
                 },
                 process.env.JWT_STRING,{ 
                 expiresIn: "1h"
@@ -29,7 +29,9 @@ export class LoginService {
                user: {
                     id: user._id,
                    email: user.email,
-                   name: user.name
+                   name: user.name,
+                   companyName: user.companyName,
+                   phone: user.phone
                },
                token
            };

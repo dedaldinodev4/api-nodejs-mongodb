@@ -6,12 +6,12 @@ export class UpdateUserController {
     async handle(request: Request, response: Response) {
 
         const { id } = request.params;
-        const { name, email } = request.body;
+        const { name, email, companyName, phone } = request.body;
 
         const service = new UpdateUserService();
 
         const result = await service.execute(id, {
-            name, email
+            name, email, companyName, phone
         });
 
         if ( result instanceof Error) {

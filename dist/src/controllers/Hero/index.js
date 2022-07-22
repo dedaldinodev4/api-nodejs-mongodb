@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteHeroController = exports.UpdateHeroController = exports.GetOneHeroController = exports.GetAllHeroesController = exports.CreateHeroController = void 0;
+const CreateHeroController_1 = require("./CreateHeroController");
+Object.defineProperty(exports, "CreateHeroController", { enumerable: true, get: function () { return CreateHeroController_1.CreateHeroController; } });
+const GetAllHeroesController_1 = require("./GetAllHeroesController");
+Object.defineProperty(exports, "GetAllHeroesController", { enumerable: true, get: function () { return GetAllHeroesController_1.GetAllHeroesController; } });
+const GetOneHeroController_1 = require("./GetOneHeroController");
+Object.defineProperty(exports, "GetOneHeroController", { enumerable: true, get: function () { return GetOneHeroController_1.GetOneHeroController; } });
+const UpdateHeroController_1 = require("./UpdateHeroController");
+Object.defineProperty(exports, "UpdateHeroController", { enumerable: true, get: function () { return UpdateHeroController_1.UpdateHeroController; } });
+const DeleteHeroController_1 = require("./DeleteHeroController");
+Object.defineProperty(exports, "DeleteHeroController", { enumerable: true, get: function () { return DeleteHeroController_1.DeleteHeroController; } });
