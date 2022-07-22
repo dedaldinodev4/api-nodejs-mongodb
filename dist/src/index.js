@@ -8,11 +8,10 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const configs_1 = require("./configs");
 dotenv_1.default.config();
-const { APP_PORT, APP_BASEURL } = configs_1.configs.variables.app;
-const { MONGO_STRING, MONGO_DB, MONGO_ATLAS_URL } = configs_1.configs.variables.mongo;
+const { MONGO_ATLAS_URL } = configs_1.configs.variables.mongo;
 mongoose_1.default.connect(`${MONGO_ATLAS_URL}`)
     .then(res => console.log('Database connected.'))
     .catch(err => console.log(err));
-server_1.server.listen(APP_PORT, () => {
-    console.log(`Server is running in url ${APP_BASEURL}`);
+server_1.server.listen(process.env.PORT, () => {
+    console.log(`Server is running`);
 });
